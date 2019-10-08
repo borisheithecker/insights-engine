@@ -1,0 +1,29 @@
+{
+  "name": "insights-engine",
+  "version": "1.0.0",
+  "description": "Storing and Processing Insights Data",
+  "main": "server.js",
+  "dependencies": {
+    "fastify": "^2.9.0",
+    "fastify-postgres": "^2.0.0",
+    "node-pg-migrate": "^3.23.2",
+    "pg": "^7.12.1",
+    "rabbit-queue": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node-pg-migrate",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schul-cloud/insights-engine.git"
+  },
+  "author": "HPI Schul-Cloud",
+  "license": "APGL",
+  "bugs": {
+    "url": "https://github.com/schul-cloud/insights-engine/issues"
+  },
+  "homepage": "https://github.com/schul-cloud/insights-engine#readme"
+}
