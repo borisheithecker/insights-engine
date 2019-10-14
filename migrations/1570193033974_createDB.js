@@ -2,6 +2,8 @@ exports.shorthands = undefined;
 
 exports.up = (pgm) => {
 
+    pgm.createExtension('uuid-ossp', { ifNotExists: true });
+
     pgm.createTable('actor', {
         insights_id: { 
             type: 'uuid',
@@ -20,6 +22,12 @@ exports.up = (pgm) => {
     pgm.createIndex('actor', 'insights_id');
 
     pgm.createTable('activity', {
+        id: {
+            type: 'uuid',
+            primaryKey: true,
+            notNull: true,
+            default: pgm.func('uuid_generate_v4()')
+        },
         actor: { 
             type: 'uuid',
             notNull: true
@@ -41,4 +49,5 @@ exports.up = (pgm) => {
             notNull: true
         }
     });
+    pgm.createIndex('activity', 'id');
 };
