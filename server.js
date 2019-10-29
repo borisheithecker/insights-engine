@@ -36,9 +36,6 @@ function insightsDataHandler(data){
   const actor = data.actor.account
   const contextActivities = data.context.contextActivities
 
-  console.log('\n\n\n\n')
-  console.log(data)
-
   // check if insights_id already exists
   fastify.pg.query(
     'SELECT school_id, roles FROM actor WHERE insights_id = $1', [actor.id],
@@ -66,48 +63,6 @@ function insightsDataHandler(data){
           )
 
         }
-
-        // insert into
-/*          context_id; 
-        fastify.pg.query(
-          `INSERT INTO context (
-            first_paint,
-            time_to_interactive,
-            page_loaded,
-            dom_interactive_time,
-            dom_content_loaded,
-            downlink,
-            request_start,
-            response_start,
-            response_end,
-            connection,
-            localhost,
-            sw_offline,
-            sw_enabled,
-            network_protocol
-            ) VALUES (
-              $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14
-            ) RETURNING context_id` , 
-            [
-              contextActivities.first_paint,
-              contextActivities.time_to_interactive,
-              contextActivities.page_loaded,
-              contextActivities.dom_interactive_time,
-              contextActivities.dom_content_loaded,
-              contextActivities.downlink,
-              contextActivities.request_start,
-              contextActivities.response_start,
-              contextActivities.response_end,
-              contextActivities.connection,
-              contextActivities.localhost,
-              (contextActivities.sw_offline == 'true'),
-              (contextActivities.sw_enabled == 'ture'),
-              contextActivities.network_protocol
-            ],
-          function onResult (err, result) {
-            context_id = result.rows[0].context_id
-          }
-        ) */
         // create new activity
         fastify.pg.query(
           `INSERT INTO activity (

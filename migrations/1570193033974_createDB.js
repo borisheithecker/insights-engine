@@ -30,7 +30,8 @@ exports.up = (pgm) => {
         },
         actor: { 
             type: 'uuid',
-            notNull: true
+            notNull: true,
+            references: 'actor'
         },
         verb: {
             type: 'varchar(24)',
