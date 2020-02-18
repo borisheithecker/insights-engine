@@ -6,7 +6,7 @@
   "dependencies": {
     "fastify": "^2.9.0",
     "fastify-postgres": "^2.0.0",
-    "node-pg-migrate": "^3.23.2",
+    "node-pg-migrate": "^4.2.2",
     "pg": "^7.12.1",
     "rabbit-queue": "^4.2.1"
   },
